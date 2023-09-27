@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herbal Life - Home</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            
+            <img src="leaf.png" alt="Herbal Life Logo"class="nav-logo">
+        
+      
+            
+
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="remedies.html">Herbal Remedies</a></li>
+                <li><a href="#">Daily Health Tips</a></li>
+                <li><a href="#">Exercise Routines</a></li>
+                <li><a href="#">Blog/Articles</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <h1>Welcome to Herbal Life</h1>
+            <p>Explore endless wellness through the wonders of nature.</p>
+            <a href="#" class="cta-button">Explore</a>
+        </section>
+        <section class="health-tips">
+            <div class="tip">
+                <h2>Health Tip 1: Stay Hydrated</h2>
+                <p>Remember to drink plenty of water throughout the day to stay hydrated. Adequate hydration is essential for overall health and well-being.</p>
+            </div>
+            <div class="tip">
+                <h2>Health Tip 2: Balanced Diet</h2>
+                <p>Eat a balanced diet rich in fruits, vegetables, whole grains, and lean proteins. A well-rounded diet is key to maintaining good health.</p>
+            </div>
+            <div class="tip">
+                <h2>Health Tip 3: Regular Exercise</h2>
+                <p>Engage in regular physical activity to boost your fitness and well-being. Aim for at least 30 minutes of exercise most days of the week.</p>
+            </div>
+            
+            <div class="tip">
+                <h2>Health Tip 4: Get Enough Sleep</h2>
+                <p>Prioritize quality sleep for better overall health. Aim for 7-9 hours of sleep per night to help your body recover and recharge.</p>
+            </div>
+            
+            <div class="tip">
+                <h2>Health Tip 5: Reduce Stress</h2>
+                <p>Practice stress management techniques such as meditation, yoga, or deep breathing exercises to reduce stress levels and improve mental health.</p>
+            </div>
+            <div class="bmi-info">
+                <h2>Curious about your fitness?</h2>
+                <p>Want to know your Body Mass Index (BMI)? Enter your height and weight below to calculate your BMI.</p>
+                <form id="bmi-form">
+                    <label for="height">Height (in cm):</label>
+                    <input type="number" id="height" name="height" required>
+                    <label for="weight">Weight (in kg):</label>
+                    <input type="number" id="weight" name="weight" required>
+                    <button type="submit">Calculate BMI</button>
+                </form>
+                <p>Your BMI: <span id="bmi-result">--</span></p>
+            </div>
+        </section>
+        
+     
+    </main>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2023 Herbal Life</p>
+            <ul>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms of Service</a></li>
+            </ul>
+        </div>
+    </footer>
+    <!-- Add this script tag to your HTML file, preferably just before the closing </body> tag -->
+    <script>
+        // Function to calculate BMI
+        function calculateBMI() {
+            // Get height and weight values from the input fields
+            const height = parseFloat(document.getElementById('height').value);
+            const weight = parseFloat(document.getElementById('weight').value);
+    
+            // Check if the input values are valid numbers
+            if (isNaN(height) || isNaN(weight)) {
+                alert('Please enter valid height and weight.');
+                return;
+            }
+    
+            // Calculate BMI (BMI = weight (kg) / (height (m) * height (m)))
+            const heightInMeters = height / 100; // Convert height from cm to meters
+            const bmi = weight / (heightInMeters * heightInMeters);
+    
+            // Display the calculated BMI in the span with id 'bmi-result'
+            document.getElementById('bmi-result').textContent = bmi.toFixed(2);
+        }
+    
+        // Add an event listener to the form to calculate BMI on form submission
+        document.getElementById('bmi-form').addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission
+            calculateBMI(); // Call the calculateBMI function
+        });
+    </script>
+
+</body>
+</html>
